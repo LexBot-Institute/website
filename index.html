@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lexbot Institute — accessible, Roku-based learning from lectures and assessments to certificates.">
+  <title>Lexbot Institute | Learning, Anywhere</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #10233f;
+      --blue: #2457a7;
+      --cyan: #42c5d8;
+      --ink: #182638;
+      --muted: #65758b;
+      --paper: #f5f8fc;
+      --line: #e4eaf2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; color: var(--ink); }
+    h1,h2,h3,h4,.brand { font-family: "Manrope", sans-serif; }
+    .hero {
+      color: white;
+      background:
+        radial-gradient(circle at 82% 22%, rgba(66,197,216,.26), transparent 28%),
+        radial-gradient(circle at 8% 100%, rgba(57,105,180,.34), transparent 38%),
+        linear-gradient(125deg, #0c1b31 0%, #142f56 58%, #174b76 100%);
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 1180px; margin: auto; }
+    .eyebrow { letter-spacing: .16em; text-transform: uppercase; font-size: .76rem; font-weight: 700; color: #8fe5ee; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; }
+    .hero-copy { color: #d8e5f4; font-size: 1.12rem; line-height: 1.8; max-width: 610px; }
+    .btn-primary { background: var(--cyan); color: #09213a !important; border-radius: 5px; font-weight: 700; }
+    .btn-outline { border: 1px solid rgba(255,255,255,.55); color: white !important; border-radius: 5px; }
+    .nav { max-width: 1180px; margin: auto; }
+    .brand-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 11px; color: #09213a;
+      background: linear-gradient(135deg, #8fe5ee, #42c5d8); font-weight: 800;
+      margin-right: 10px;
+    }
+    .hero-visual { min-height: 350px; display: flex; align-items: center; justify-content: center; }
+    .screen {
+      width: min(100%, 480px); border: 1px solid rgba(255,255,255,.24);
+      border-radius: 18px; padding: 14px; background: rgba(255,255,255,.09);
+      box-shadow: 0 28px 80px rgba(0,0,0,.28); transform: rotate(1.5deg);
+      backdrop-filter: blur(8px);
+    }
+    .screen-top { display:flex; justify-content:space-between; color:#dbe9f7; font-size:.78rem; padding:5px 5px 13px; }
+    .screen-content { background:#f7f9fc; color:var(--ink); border-radius:11px; padding:22px; }
+    .lesson-bar { height:7px; background:#e4eaf2; border-radius:10px; overflow:hidden; }
+    .lesson-bar span { display:block; width:68%; height:100%; background:var(--cyan); }
+    .lesson-tile { background:white; border:1px solid var(--line); border-radius:9px; padding:13px; }
+    .section { padding: 82px 22px; }
+    .section-inner { max-width: 1120px; margin: auto; }
+    .section-kicker { color:var(--blue); text-transform:uppercase; letter-spacing:.15em; font-size:.75rem; font-weight:700; }
+    .section-title { font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-.035em; color:var(--navy); }
+    .muted { color:var(--muted); line-height:1.75; }
+    .feature-card { height:100%; padding:27px; border:1px solid var(--line); border-radius:13px; background:white; box-shadow:0 8px 28px rgba(17,39,70,.045); }
+    .feature-icon { width:46px; height:46px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:#e9f8fa; color:#146c80; font-size:1.25rem; font-weight:800; }
+    .step-number { color:#2c93a6; font-family:"Manrope"; font-size:2.2rem; font-weight:800; }
+    .roku-band { background:#edf5fb; }
+    .roku-panel { background:linear-gradient(120deg,#10233f,#1d4b78); color:white; border-radius:18px; padding:clamp(28px,5vw,54px); }
+    .roku-panel p { color:#d8e5f4; line-height:1.8; }
+    .pill { display:inline-block; border:1px solid rgba(255,255,255,.25); padding:7px 12px; border-radius:30px; color:#dff8fa; font-size:.82rem; margin:4px 4px 4px 0; }
+    .about-card { border-left:4px solid var(--cyan); background:#f5f8fc; padding:25px 28px; border-radius:0 12px 12px 0; }
+    .cta { background:#10233f; color:white; }
+    .cta p { color:#d5e2f1; }
+    footer { background:#09182b; color:#b8c7d9; }
+    footer a { color:#dff8fa; text-decoration:none; }
+    .smallprint { font-size:.83rem; line-height:1.65; color:#91a2b7; }
+    @media (max-width:600px) {
+      .section { padding:62px 18px; }
+      .hero-visual { min-height:280px; padding-top:24px; }
+      .hero h1 { font-size:2.65rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <header class="w3-bar nav w3-padding-16 w3-container">
+      <a href="#top" class="w3-bar-item w3-button w3-hover-none" style="color:white;text-decoration:none">
+        <span class="brand-mark">L</span><span class="brand" style="font-weight:800;font-size:1.12rem">LEXBOT <span style="font-weight:500;color:#a9dfe8">INSTITUTE</span></span>
+      </a>
+      <nav class="w3-right w3-hide-small w3-padding-small">
+        <a href="#learning" class="w3-bar-item w3-button w3-hover-none" style="color:#e5edf7">Learning</a>
+        <a href="#roku" class="w3-bar-item w3-button w3-hover-none" style="color:#e5edf7">Roku Classroom</a>
+        <a href="#about" class="w3-bar-item w3-button w3-hover-none" style="color:#e5edf7">About</a>
+        <a href="#contact" class="w3-bar-item w3-button btn-primary">Get Updates</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero-inner w3-container w3-padding-32">
+      <div class="w3-row-padding w3-padding-32">
+        <div class="w3-col l6 m6 w3-padding-16">
+          <div class="eyebrow w3-margin-bottom">A classroom built for the living room</div>
+          <h1>Learning that<br><span style="color:#8fe5ee">meets you</span><br>where you are.</h1>
+          <p class="hero-copy w3-margin-top">Lexbot Institute brings structured learning to the screen you already use. Follow lectures, complete assessments, and access course certificates through an integrated Roku classroom experience.</p>
+          <div class="w3-margin-top">
+            <a href="#learning" class="w3-button btn-primary w3-padding-large w3-margin-right w3-margin-bottom">Explore the classroom</a>
+            <a href="#about" class="w3-button btn-outline w3-padding-large w3-margin-bottom">About the Institute</a>
+          </div>
+          <p class="w3-small" style="color:#a9bdd3">An educational program of Amerione Corporation, a Florida nonprofit corporation.</p>
+        </div>
+        <div class="w3-col l6 m6 hero-visual">
+          <div class="screen">
+            <div class="screen-top"><span>LEXBOT CLASSROOM</span><span>● LEARNING PORTAL</span></div>
+            <div class="screen-content">
+              <div class="w3-small" style="color:#61738a;font-weight:700;letter-spacing:.1em">YOUR LEARNING SPACE</div>
+              <h3 style="font-weight:800;margin:8px 0 4px">Course dashboard</h3>
+              <p class="w3-small" style="color:#65758b;margin-top:0">Pick up where you left off.</p>
+              <div class="lesson-tile w3-margin-top">
+                <div class="w3-row">
+                  <div class="w3-col s8"><b>Foundations Lecture</b><div class="w3-small" style="color:#718096">Module 03 · 24 min</div></div>
+                  <div class="w3-col s4 w3-right-align"><span style="color:#16869a;font-weight:700">IN PROGRESS</span></div>
+                </div>
+                <div class="lesson-bar w3-margin-top"><span></span></div>
+                <div class="w3-small w3-margin-top" style="color:#65758b">68% complete</div>
+              </div>
+              <div class="w3-row-padding w3-margin-top">
+                <div class="w3-col s4"><div class="lesson-tile w3-center"><div style="font-size:1.35rem">▶</div><b class="w3-small">Lectures</b></div></div>
+                <div class="w3-col s4"><div class="lesson-tile w3-center"><div style="font-size:1.35rem">✓</div><b class="w3-small">Exams</b></div></div>
+                <div class="w3-col s4"><div class="lesson-tile w3-center"><div style="font-size:1.35rem">▤</div><b class="w3-small">Awards</b></div></div>
+              </div>
+              <div class="w3-small w3-center w3-margin-top" style="color:#8190a2">Illustrative classroom interface</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <section id="learning" class="section">
+    <div class="section-inner">
+      <div class="w3-center w3-margin-bottom">
+        <div class="section-kicker">One connected learning journey</div>
+        <h2 class="section-title">The whole classroom, on Roku</h2>
+        <p class="muted" style="max-width:690px;margin:0 auto">From the first lesson to the final assessment, the learning experience is designed as one continuous pathway—not a collection of disconnected videos.</p>
+      </div>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-col l4 m4 w3-margin-bottom">
+          <div class="feature-card">
+            <div class="feature-icon">▶</div>
+            <h3 style="font-weight:800;color:var(--navy)">Lectures & lessons</h3>
+            <p class="muted">Watch instructor-led lectures and course modules in a television-friendly format. Learn at your own pace and return to lessons as needed.</p>
+          </div>
+        </div>
+        <div class="w3-col l4 m4 w3-margin-bottom">
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3 style="font-weight:800;color:var(--navy)">Exams & assessments</h3>
+            <p class="muted">Review course material and complete knowledge checks and examinations as part of the program's learning sequence.</p>
+          </div>
+        </div>
+        <div class="w3-col l4 m4 w3-margin-bottom">
+          <div class="feature-card">
+            <div class="feature-icon">▤</div>
+            <h3 style="font-weight:800;color:var(--navy)">Certificates</h3>
+            <p class="muted">Access completion records and certificates when the applicable course requirements have been met and verified.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section roku-band" id="roku">
+    <div class="section-inner">
+      <div class="roku-panel">
+        <div class="w3-row-padding">
+          <div class="w3-col l7 m7">
+            <div class="eyebrow">Designed for the big screen</div>
+            <h2 class="section-title" style="color:white;margin-top:12px">Your classroom.<br>Your Roku remote.</h2>
+            <p>Lexbot's delivery model brings the instructional experience into the home. Students can navigate course content, stream lessons, and move through the program's assessment and certificate workflow using the Roku app.</p>
+            <span class="pill">Course lectures</span>
+            <span class="pill">Learning modules</span>
+            <span class="pill">Exams & assessments</span>
+            <span class="pill">Completion certificates</span>
+          </div>
+          <div class="w3-col l5 m5 w3-padding-16">
+            <div style="border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);border-radius:14px;padding:24px">
+              <div style="font-size:2.7rem;color:#8fe5ee">▣</div>
+              <h3 style="font-weight:800;color:white">A complete program experience</h3>
+              <p class="w3-small">The Roku app is intended to serve as the central classroom interface—from instruction through evaluation and recognition of course completion.</p>
+              <p class="w3-small" style="color:#9fe6ed">App availability and features are subject to release and platform approval.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="w3-center">
+        <div class="section-kicker">A clear path from start to finish</div>
+        <h2 class="section-title">How the classroom works</h2>
+      </div>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-col l3 m6 w3-margin-bottom"><div class="feature-card"><div class="step-number">01</div><h3 style="font-weight:800">Choose a course</h3><p class="muted">Explore the available educational program and its course requirements.</p></div></div>
+        <div class="w3-col l3 m6 w3-margin-bottom"><div class="feature-card"><div class="step-number">02</div><h3 style="font-weight:800">Attend lessons</h3><p class="muted">Watch lectures and work through the assigned learning material.</p></div></div>
+        <div class="w3-col l3 m6 w3-margin-bottom"><div class="feature-card"><div class="step-number">03</div><h3 style="font-weight:800">Complete exams</h3><p class="muted">Demonstrate understanding through the course's assessments.</p></div></div>
+        <div class="w3-col l3 m6 w3-margin-bottom"><div class="feature-card"><div class="step-number">04</div><h3 style="font-weight:800">Receive a record</h3><p class="muted">Qualifying students can access a certificate or completion record.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" style="padding-top:45px">
+    <div class="section-inner">
+      <div class="w3-row-padding">
+        <div class="w3-col l5 m5">
+          <div class="section-kicker">The organization</div>
+          <h2 class="section-title">Education with a public-benefit purpose.</h2>
+        </div>
+        <div class="w3-col l7 m7">
+          <div class="about-card">
+            <h3 style="font-weight:800;color:var(--navy);margin-top:0">Amerione Corporation</h3>
+            <p class="muted">Amerione Corporation is a Florida nonprofit corporation. Lexbot Institute is the corporation's registered Florida fictitious name and is used for its educational activities and public-facing learning programs.</p>
+            <p class="muted">Through Lexbot Institute, Amerione Corporation intends to advance educational purposes by developing and delivering structured instruction, learning assessments, and course-completion recognition through digital media.</p>
+            <p class="w3-small" style="color:#65758b;margin-bottom:0">The organization's federal tax classification and any private operating foundation status are determined under applicable law and IRS requirements, not by use of a fictitious name or this website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta" id="contact">
+    <div class="section-inner w3-center">
+      <div class="eyebrow">Stay connected</div>
+      <h2 class="section-title" style="color:white">A new way to experience education.</h2>
+      <p style="max-width:650px;margin:0 auto 25px">Follow Lexbot Institute as the Roku classroom and educational programs develop.</p>
+      <!-- Replace the placeholder email with an organization-controlled contact address before publishing. -->
+      <a class="w3-button btn-primary w3-padding-large" href="mailto:info@lexbotinstitute.amerione.org?subject=Lexbot%20Institute%20Information">Contact the Institute</a>
+    </div>
+  </section>
+
+  <footer class="w3-padding-32">
+    <div class="section-inner w3-container">
+      <div class="w3-row-padding">
+        <div class="w3-col l7 m7">
+          <div class="brand" style="color:white;font-weight:800;font-size:1.05rem">AMERIONE CORPORATION <span style="color:#8fe5ee">/ LEXBOT INSTITUTE</span></div>
+          <p class="smallprint">Amerione Corporation is a Florida nonprofit corporation. Lexbot Institute is a registered Florida fictitious name of Amerione Corporation.</p>
+        </div>
+        <div class="w3-col l5 m5 w3-right-align">
+          <p class="smallprint">© <span id="year"></span> Amerione Corporation. All rights reserved.</p>
+          <p class="smallprint">Educational information only. Course certificates recognize completion of the applicable Lexbot Institute program and are not, unless expressly stated, professional licenses, academic degrees, or third-party accreditations.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
